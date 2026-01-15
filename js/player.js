@@ -328,7 +328,7 @@ player.on('loadeddata', async function () {
     // NAVER 광고 미리 요청
     if (nextItem.isHivestack === 'A') {
       const naverInfo = await getUrlFromNaver(nextItem.naverUrl);
-      console.log('naverInfo', naverInfo.responseBody);
+      console.log('naverInfo', naverInfo, naverInfo.responseBody);
       if (naverInfo.success) {
         try {
           await axios.get(naverInfo.videoUrl); // 사전 로딩
@@ -644,6 +644,8 @@ async function addReport(currentItem) {
   const { reportUrl, sources, report, isHivestack } = currentItem;
 
   let shouldSaveReport = false;
+
+  console.log('currentItem', currentItem, 'currentItem.report', currentItem.report, 'reportUrl', reportUrl, 'sources', sources, 'report', report);
 
   if (reportUrl) {
     // Naver의 경우 reportUrl이 배열일 수 있음
