@@ -328,7 +328,7 @@ player.on('loadeddata', async function () {
     // NAVER 광고 미리 요청
     if (nextItem.isHivestack === 'A') {
       const naverInfo = await getUrlFromNaver(nextItem.naverUrl);
-      console.log('naverInfo', naverInfo);
+      console.log('naverInfo', naverInfo.responseBody);
       if (naverInfo.success) {
         try {
           await axios.get(naverInfo.videoUrl); // 사전 로딩
